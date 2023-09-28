@@ -1,0 +1,36 @@
+.DashboardOverview {
+  @apply flex flex-col gap-2 items-center justify-center w-full bg-secondaryBg p-3 rounded-lg;
+
+  .header {
+    @apply flex flex-row gap-3 items-center w-full;
+
+    .title {
+      @apply text-2xl font-bold;
+    }
+
+    .userlixoVersion {
+      @apply text-sm text-hint ml-auto;
+    }
+  }
+
+  .stats {
+    @apply text-sm text-hint w-full;
+
+    .row {
+      @apply w-full flex flex-row items-center gap-1;
+    }
+  }
+
+  .footer {
+    @apply text-xs flex gap-2;
+
+    .errorBadge {
+      @apply flex flex-row items-center gap-1;
+      @apply badge badge-error;
+    }
+    .warningBadge {
+      @apply flex flex-row items-center gap-1;
+      @apply badge badge-warning;
+    }
+  }
+}

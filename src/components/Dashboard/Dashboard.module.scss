@@ -1,0 +1,7 @@
+.Dashboard {
+  @apply bg-background h-full w-full rounded-xl flex flex-col gap-2 items-center justify-start p-2;
+
+  .itemsGroup {
+    @apply w-full flex flex-row gap-2;
+  }
+}
