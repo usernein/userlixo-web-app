@@ -1,0 +1,7 @@
+.SettingsPage {
+  @apply flex w-full flex-col gap-2 justify-start h-full;
+
+  .settingsGroup {
+    @apply flex flex-col gap-0.5;
+  }
+}

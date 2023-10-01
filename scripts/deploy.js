@@ -7,7 +7,7 @@ dotenvExpand.expand(env);
 
 const rsync = new Rsync()
   .shell("ssh")
-  .flags("azr")
+  .flags("azr", true)
   .source("./dist/")
   // eslint-disable-next-line no-undef
   .destination(process.env.RSYNC_DESTINATION);

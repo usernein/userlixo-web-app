@@ -1,5 +1,5 @@
 .DashboardOverview {
-  @apply flex flex-col gap-2 items-center justify-center w-full bg-secondaryBg p-3 rounded-lg;
+  @apply flex flex-col gap-2 items-center justify-center w-full bg-background p-3;
 
   .header {
     @apply flex flex-row gap-3 items-center w-full;
@@ -28,9 +28,10 @@
       @apply flex flex-row items-center gap-1;
       @apply badge badge-error;
     }
+
     .warningBadge {
       @apply flex flex-row items-center gap-1;
-      @apply badge badge-warning;
+      @apply badge badge-warning bg-amber-600 border-amber-700;
     }
   }
 }

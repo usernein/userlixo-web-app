@@ -20,7 +20,9 @@ const NavigateMenuItem: FC<NavigateMenuItemProps> = ({
       icon={icon}
       label={label}
       hasSubMenu
-      onClick={() => navigate(navigateTo)}
+      onClick={() =>
+        navigate({ pathname: navigateTo, search: window.location.search })
+      }
     />
   );
 };

@@ -1,5 +1,5 @@
 .MenuItem {
-  @apply flex items-center p-3 gap-2 h-16 w-full rounded-lg bg-secondaryBg text-text;
+  @apply flex items-center p-3 gap-2 h-16 w-full bg-background text-text select-none;
 
   .icon {
     @apply bg-button text-buttonText rounded-full p-1 text-xl;

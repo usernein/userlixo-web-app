@@ -1,0 +1,11 @@
+.SettingBooleanItem {
+  @apply flex items-center justify-between p-3 gap-2 h-fit w-full bg-background text-text select-none relative hover:text-button;
+
+  .label {
+    @apply text-sm font-medium;
+  }
+
+  .boolean {
+    @apply switch switch-md checked:bg-button checked:border-button;
+  }
+}

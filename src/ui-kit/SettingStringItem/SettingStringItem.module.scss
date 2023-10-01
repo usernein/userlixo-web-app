@@ -1,0 +1,11 @@
+.SettingStringItem {
+  @apply flex-col-reverse relative flex items-start justify-between px-3 py-2 gap-1 h-fit w-full bg-background text-text select-none;
+
+  .label {
+    @apply text-sm font-medium;
+  }
+
+  .text {
+    @apply text-text input input-block input-sm input-ghost-primary hover:border-button focus:border-button;
+  }
+}

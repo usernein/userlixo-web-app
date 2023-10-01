@@ -7,7 +7,7 @@ interface AvatarProps {
 
 const Avatar: FC<AvatarProps> = ({ src }) => (
   <div className={styles.Avatar}>
-    <img src={src} />
+    <img alt="Userbot profile picture" src={src} />
   </div>
 );
 

@@ -16,3 +16,7 @@
     --tg-viewport-stable-height: 100vh;
   }
 }
+
+#root {
+  @apply bg-black w-screen h-screen flex items-center justify-center;
+}
