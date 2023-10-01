@@ -1,4 +1,4 @@
-import { AppState, CurrentOriginalState } from "./types/AppState.ts";
+import { CurrentOriginalState } from "./types/AppState.ts";
 import { AppReducerAction } from "./types/AppReducerAction.ts";
 import { AppReducerActionType } from "./types/AppReducerActionType.ts";
 import deepmerge from "ts-deepmerge";
@@ -21,9 +21,4 @@ export const AppReducer = (
     default:
       return state;
   }
-};
-
-export const initialState: CurrentOriginalState = {
-  current: {} as AppState,
-  original: {} as AppState,
 };

@@ -31,7 +31,7 @@ const SettingsPage: FC<SettingsPageProps> = () => {
             name: "language",
             type: "select",
             label: "Language",
-            value: settings?.language,
+            value: settings?.language ?? "en",
             options: [
               { label: "English", value: "en" },
               { label: "Português", value: "pt" },

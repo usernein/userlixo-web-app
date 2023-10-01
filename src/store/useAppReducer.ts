@@ -1,8 +1,9 @@
 import { AppState, CurrentOriginalState } from "./types/AppState.ts";
 import { AppReducerActionType } from "./types/AppReducerActionType.ts";
 import React from "react";
-import { AppReducer, initialState } from "./AppReducer.ts";
+import { AppReducer } from "./AppReducer.ts";
 import { PartialDeep } from "type-fest";
+import { useSearchParams } from "react-router-dom";
 
 type useAppReducerReturn = {
   state: CurrentOriginalState["current"];
@@ -11,7 +12,29 @@ type useAppReducerReturn = {
   updateOriginalState: (newStateValues: PartialDeep<AppState>) => void;
 };
 
+const useInitialAppState = (): AppState => {
+  const [searchParams] = useSearchParams();
+
+  const infoJson = searchParams.get("info");
+  const info = infoJson ? JSON.parse(infoJson) : {};
+
+  const settingsJson = searchParams.get("settings");
+  const settings = settingsJson ? JSON.parse(settingsJson) : {};
+
+  return {
+    info,
+    settings,
+  };
+};
+
 export const useAppReducer = (): useAppReducerReturn => {
+  const initialAppState = useInitialAppState();
+
+  const initialState: CurrentOriginalState = {
+    current: initialAppState,
+    original: initialAppState,
+  };
+
   const [state, dispatch] = React.useReducer(AppReducer, initialState);
 
   const updateState = (newStateValues: PartialDeep<AppState>) => {
