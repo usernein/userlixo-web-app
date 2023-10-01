@@ -1,14 +1,14 @@
 export type AppState = {
   settings: {
-    language: string;
-    sudoers: string[];
+    language?: string;
+    sudoers?: string[];
   };
   info: {
-    version: string;
-    name: string;
-    picture: string;
-    id: number;
-    lastBootTime: number;
+    version?: string;
+    name?: string;
+    picture?: string;
+    id?: number;
+    lastBootTime?: number;
   };
 };
 

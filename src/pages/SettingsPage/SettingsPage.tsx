@@ -1,16 +1,20 @@
-import { FC, useContext } from "react";
+import { FC } from "react";
 import styles from "./SettingsPage.module.scss";
 import TelegramBackButton from "../../components/TelegramBackButton/TelegramBackButton";
 import SettingItem from "../../ui-kit/SettingItem/SettingItem";
 import AutomaticSaveSettingsButton from "../../components/AutomaticSaveSettingsButton/AutomaticSaveSettingsButton.tsx";
 import { StateDataContext } from "../../context/StateDataContext.ts";
 import { StateApiContext } from "../../context/StateApiContext.ts";
+import { useContextSelector } from "use-context-selector";
 
 interface SettingsPageProps {}
 
 const SettingsPage: FC<SettingsPageProps> = () => {
-  const { state } = useContext(StateDataContext);
-  const { updateState } = useContext(StateApiContext);
+  const state = useContextSelector(StateDataContext, (state) => state.state);
+  const updateState = useContextSelector(
+    StateApiContext,
+    (state) => state.updateState,
+  );
 
   const settings = state.settings;
 

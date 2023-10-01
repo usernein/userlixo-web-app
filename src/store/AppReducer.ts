@@ -13,7 +13,11 @@ export const AppReducer = (
     case AppReducerActionType.SET_STATE:
       return action.payload;
     case AppReducerActionType.UPDATE_STATE:
-      return deepmerge(state, action.payload) as CurrentOriginalState;
+      return deepmerge.withOptions(
+        { mergeArrays: false },
+        state,
+        action.payload,
+      ) as CurrentOriginalState;
     default:
       return state;
   }
