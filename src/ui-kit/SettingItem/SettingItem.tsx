@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Setting } from "../../types/Setting.ts";
+import { Setting } from "@/types/Setting.ts";
 import SettingBooleanItem from "../SettingBooleanItem/SettingBooleanItem.tsx";
 import SettingNumberItem from "../SettingNumberItem/SettingNumberItem.tsx";
 import SettingStringItem from "../SettingStringItem/SettingStringItem.tsx";
@@ -34,12 +34,7 @@ const SettingItem: FC<SettingItemProps> = ({ setting, onChange }) => {
         />
       );
     case "select":
-      return (
-        <SettingSelectItem
-          setting={setting}
-          onChange={(e) => onChange(e.target.value)}
-        />
-      );
+      return <SettingSelectItem setting={setting} onChange={onChange} />;
     default:
       return <div>Unknown</div>;
   }

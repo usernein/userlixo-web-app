@@ -1,15 +1,7 @@
 .SettingSelectItem {
-  @apply flex items-center justify-between p-3 gap-2 h-fit w-full bg-background text-text select-none relative hover:text-button;
+  @apply flex items-center justify-between p-3 h-fit w-full bg-background text-text select-none;
 
   .label {
-    @apply text-sm font-medium;
-  }
-
-  .select {
-    @apply input input-ghost-primary input-sm hover:border-button focus:border-button w-28 text-text;
-
-    .option {
-      @apply text-text bg-secondaryBg hover:bg-button hover:text-buttonText;
-    }
+    @apply p-0;
   }
 }

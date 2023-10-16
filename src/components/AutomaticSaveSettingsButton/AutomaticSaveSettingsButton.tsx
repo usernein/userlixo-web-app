@@ -1,27 +1,25 @@
 import { FC } from "react";
-import { StateDataContext } from "../../context/StateDataContext.ts";
-import { MainButton } from "@vkruglikov/react-telegram-web-app";
-import { useContextSelector } from "use-context-selector";
-import * as _ from "lodash";
+import { MainButton, useWebApp } from "@vkruglikov/react-telegram-web-app";
+import { useStoreContext } from "@/context/useStoreContext.ts";
+import { useStore } from "zustand";
+import { getHasSettingsChanged, getSettings } from "@/store/selectors.ts";
 
 interface AutomaticSaveSettingsButtonProps {}
 
 const AutomaticSaveSettingsButton: FC<
   AutomaticSaveSettingsButtonProps
 > = () => {
-  const originalState = useContextSelector(
-    StateDataContext,
-    (state) => state.originalState,
-  );
-  const state = useContextSelector(StateDataContext, (state) => state.state);
+  const store = useStoreContext();
+  const { settings } = useStore(store, getSettings);
+  const hasSettingsChanged = useStore(store, getHasSettingsChanged);
+  const WebApp = useWebApp();
 
   return (
-    !_.isEqual(state, originalState) && (
+    hasSettingsChanged() && (
       <MainButton
         text={"Save settings"}
         onClick={() => {
-          // sendData to Telegram
-          console.log("Send settings to Telegram!");
+          WebApp.sendData("save_settings--" + JSON.stringify(settings));
         }}
       />
     )

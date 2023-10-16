@@ -6,16 +6,23 @@ import Dashboard from "./components/Dashboard/Dashboard.tsx";
 import CommandsPage from "./pages/CommandsPage/CommandsPage.tsx";
 import SettingsPage from "./pages/SettingsPage/SettingsPage.tsx";
 import PluginsPage from "./pages/PluginsPage/PluginsPage.tsx";
+import { StrictMode } from "react";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />}>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="commands" element={<CommandsPage />} />
-        <Route path="settings" element={<SettingsPage />} />
-        <Route path="plugins" element={<PluginsPage />} />
-      </Route>
-    </Routes>
-  </BrowserRouter>,
+  <StrictMode>
+    <BrowserRouter
+      {...(import.meta.env.MODE != "development"
+        ? { basename: "/userlixo" }
+        : {})}
+    >
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="commands" element={<CommandsPage />} />
+          <Route path="settings" element={<SettingsPage />} />
+          <Route path="plugins" element={<PluginsPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  </StrictMode>,
 );

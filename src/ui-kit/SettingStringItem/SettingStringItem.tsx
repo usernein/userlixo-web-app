@@ -1,8 +1,9 @@
 import React, { FC } from "react";
 import styles from "./SettingStringItem.module.scss";
-import { SettingString } from "../../types/Setting.ts";
-import Ripple from "../../ui-kit/Ripple/Ripple";
-import clsx from "clsx";
+import { SettingString } from "@/types/Setting.ts";
+import { Label } from "@/components/ui/label.tsx";
+import { Input } from "@/components/ui/input.tsx";
+import * as _ from "lodash";
 
 interface SettingStringItemProps {
   setting: SettingString;
@@ -12,24 +13,20 @@ interface SettingStringItemProps {
 const SettingStringItem: FC<SettingStringItemProps> = ({
   setting,
   onChange,
-}) => (
-  <Ripple className={styles.SettingStringItem}>
-    <input
-      type="text"
-      className={clsx(styles.text, "peer duration-100")}
-      defaultValue={setting.value}
-      onChange={onChange}
-    ></input>
-
-    <div
-      className={clsx(
-        styles.label,
-        "duration-100 peer-focus:text-button peer-hover:text-button",
-      )}
-    >
-      {setting.label}
+}) => {
+  const uniqueId = _.uniqueId("setting-string-item-");
+  return (
+    <div className={styles.SettingStringItem}>
+      <Label htmlFor={uniqueId}>{setting.label}</Label>
+      <Input
+        type="text"
+        id={uniqueId}
+        placeholder={setting.label}
+        defaultValue={setting.value}
+        onChange={onChange}
+      />
     </div>
-  </Ripple>
-);
+  );
+};
 
 export default SettingStringItem;
